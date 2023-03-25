@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Login</title>
+    <style>
+        .text-center {
+            margin-top: 15%;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 60px;
+            line-height: 79px;
+            text-transform: capitalize;
+
+            color: #3A3A3A;
+        }
+
+        .text-rectangle {
+            margin-top: 23.5%;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 60px;
+            line-height: 79px;
+            text-transform: capitalize;
+            text-align: center;
+            color: white;
+        }
+
+        .continer {
+            position: fixed;
+            left: 0;
+            width: 61%;
+            height: 100%;
+        }
+
+        .row {
+            text-align: center;
+        }
+
+        .row .img {
+            width: 55px;
+            height: 52px;
+        }
+
+        .rectangle {
+            position: fixed;
+            right: 0;
+            width: 39%;
+            height: 100%;
+            background: linear-gradient(142.39deg, #2FBC78 8.21%, #2FBC89 50.4%, #1FDDDD 93.54%);
+        }
+
+        .text-or {
+
+            margin-top: 20px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 22px;
+            color: #737373;
+        }
+        .title {
+            margin-top: 20px;
+            overflow: hidden;
+            text-align: center;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 22px;
+        }
+        .title span {
+            padding-bottom: 20px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .title:before,
+        .title:after {
+            content: "";
+            display: inline-block;
+            vertical-align: middle;
+            width: 25%;
+            height: 2px;
+            background-color: #b0b0b0;
+            position: relative;
+        }
+
+        .title:before {
+
+            margin-left: -100%;
+            left: -14px;
+        }
+
+        .title:after {
+
+            margin-right: -100%;
+
+            right: -14px;
+        }
+
+        :active, :hover, :focus {
+            outline: 0;
+            outline-offset: 0;
+        }
+
+        .form {
+            margin: 0 auto;
+            position: relative;
+            width: 564px;
+            height: 65px;
+
+        }
+
+        .pass {
+            padding-top: 10px;
+        }
+
+        .password_btn {
+            position: absolute;
+            right: 20px;
+            top: 18px;
+            cursor: pointer;
+        }
+
+
+        .form__input {
+            width: 562px;
+            height: 63px;
+            background: rgba(146, 219, 206, 0.37);
+            border-radius: 25px;
+            border: none;
+            padding-left: 20px;
+
+        }
+
+        .form.password__lable {
+            margin-top: 10px;
+        }
+
+
+        .password-control {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background: url('/img/view.png') 0 0 no-repeat;
+            transition: 0.3s;
+
+        }
+
+        .password-control.view {
+            background: url('/img/noview.png') 0 0 no-repeat;
+            transition: 0.3s;
+            width: 35px;
+            height: 35px;
+        }
+
+        .form_submit {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .sign__in {
+            width: 295px;
+            height: 60px;
+            background-color: #63D597;
+            border: none;
+            border-radius: 30px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 24px;
+            color: white;
+        }
+
+        .rectangle {
+            position: fixed;
+            right: 0;
+            width: 39%;
+            height: 100%;
+            background: linear-gradient(142.39deg, #2FBC78 8.21%, #2FBC89 50.4%, #1FDDDD 93.54%);
+        }
+
+        .text-rectangle {
+            margin-top: 23.5%;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 60px;
+            line-height: 79px;
+            text-transform: capitalize;
+            text-align: center;
+            color: white;
+        }
+
+        .bubble {
+            position: fixed;
+            width: 545px;
+            height: 545px;
+            background: rgba(103, 205, 181, 0.9);
+            border-radius: 50%;
+            right: -300px;
+            margin-top: 15%;
+            z-index: -0.5;
+        }
+
+        .bubble1 {
+            width: 100px;
+            height: 100px;
+            position: fixed;
+            background: rgba(103, 205, 181, 0.9);
+            border-radius: 50%;
+            right: 100px;
+            margin-top: 5%;
+        }
+
+        .bubble2 {
+            width: 160px;
+            height: 160px;
+            position: fixed;
+            background: rgba(103, 205, 181, 0.9);
+            border-radius: 50%;
+            right: 300px;
+            margin-top: 35%;
+        }
+
+        .sign__up {
+            width: 295px;
+            height: 60px;
+            background-color: #ffffff;
+            border: none;
+            text-decoration: none;
+            border-radius: 30px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 24px;
+            color: rgba(63, 162, 136, 0.9);
+            z-index: 10;
+            padding: 16px;
+
+            vertical-align: middle;
+        }
+
+        .form_submit-up {
+            text-align: center;
+            margin-top: 170px;
+            z-index: 7;
+        }
+    </style>
+</head>
+<body>
+
+<div class="continer">
+    <div>
+        <p class="text-center">Login to Your account</p>
+    </div>
+    <div class="title">
+            <span>
+                OR
+            </span>
+    </div>
+    <form action="/process_login" method="post" class="form">
+        <input  type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+        <input class="form__input" type="text" id="username" name="username" placeholder="Enter your username...">
+        <div class="form password__lable">
+            <input class="form__input" type="password" id="password" name="password" placeholder="Enter your password...">
+        </div>
+        <div class="form_submit">
+            <button class="sign__in" type="submit">Submit</button>
+        </div>
+        <div th:if="${param.error}" style="color: #ff0000;">
+            Wrong password or username
+        </div>
+    </form>
+
+
+</div>
+<div class="rectangle">
+    <div class="bubble"></div>
+    <p class="text-rectangle">Now Here?</p>
+    <div class="form_submit-up">
+        <a type="submit" class="sign__up" th:href="@{/auth/register}">Sign Up</a>
+    </div>
+
+</div>
+<div class="bubble"></div>
+<div class="bubble1"></div>
+<div class="bubble2"><img src="http://alatoo.edu.kg/image;jsessionid=ImfmczDkOLalr6qnxDt3UHGfXAPBs_n9kOeTIici.unknown-host?img=image_logo_4x.png_565734559276200316.png" alt="" height="160px" width="160px"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+</body>
+</html>
